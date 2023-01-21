@@ -1,7 +1,6 @@
 "use strict";
 
 const allCells = document.querySelectorAll(".each-cell");
-const allX = document.querySelectorAll(".x");
 const players = document.querySelectorAll(".player");
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
@@ -13,6 +12,10 @@ const newBtn = document.querySelector(".btn-new");
 const score1 = document.querySelector(".score-1");
 const score2 = document.querySelector(".score-2");
 const score0 = document.querySelector(".score-0");
+
+const player1sb = document.querySelector(".player1sb");
+const drawsb = document.querySelector(".drawsb");
+const player2sb = document.querySelector(".player2sb");
 
 console.log(scoreBoard);
 
@@ -81,6 +84,9 @@ const newFunc = function () {
   score0.textContent = `${drawScore}`;
   score1.textContent = `${player1score}`;
   score2.textContent = `${player2score}`;
+  player1sb.textContent = `Player - 1 : ${player1score}`;
+  drawsb.textContent = `Draw : ${drawScore}`;
+  player2sb.textContent = `Player - 2 : ${player2score}`;
 };
 
 const gameEnded = function (winner) {
@@ -89,7 +95,7 @@ const gameEnded = function (winner) {
     currentWinner.textContent = "🤝";
     score0.textContent = `${drawScore}`;
   } else {
-    state.textContent = "Winner";
+    state.textContent = "🎉Winner🎉";
     currentWinner.textContent = `Player - ${winner}`;
     if (winner == 1) {
       score1.textContent = `${player1score}`;
@@ -97,6 +103,10 @@ const gameEnded = function (winner) {
       score2.textContent = `${player2score}`;
     }
   }
+  player1sb.textContent = `Player - 1 : ${player1score}`;
+  drawsb.textContent = `Draw : ${drawScore}`;
+  player2sb.textContent = `Player - 2 : ${player2score}`;
+
   overlay.classList.remove("hidden");
   modal.classList.remove("hidden");
 };
